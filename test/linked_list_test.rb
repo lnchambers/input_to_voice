@@ -13,38 +13,48 @@ class LinkedListTest < Minitest::Test
   def test_linked_list_append_can_create_nodes
     list = LinkedList.new
 
-    list.append("We")
+    list.append([["We"]])
 
     assert_instance_of Node, list.head
-    assert_equal "We", list.head.data
+    assert_equal ["We"], list.head.data
     assert_nil list.head.next_node
   end
 
-  def test_linked_list_count_is_accurate
+  def test_linked_list_length_is_accurate
     list = LinkedList.new
 
-    list.append("We")
+    list.append(["We"])
 
-    assert_equal 1, list.count
+    assert_equal 1, list.length
     assert_nil list.head.next_node
 
-    list.append("Wer")
-    list.append("Were")
-    list.append("Weres")
+    list.append(["Wer"])
+    list.append(["Were"])
+    list.append(["Weres"])
 
-    assert_equal 4, list.count
-    assert_equal "Wer", list.head.next_node.data
+    assert_equal 4, list.length
+    assert_equal ["Wer"], list.head.next_node.data
   end
 
   def test_linked_list_to_string_returns_a_string_of_all_data
     list = LinkedList.new
 
-    list.append("We")
-    list.append("Wer")
-    list.append("Were")
-    list.append("Weres")
+    list.append(["We"])
+    list.append(["Wer"])
+    list.append(["Were"])
+    list.append(["Weres"])
 
     assert_equal "We Wer Were Weres", list.to_string
+  end
+
+  def test_linked_list_can_accept_long_strings
+    list = LinkedList.new
+
+    list.append("There were three things I knew for certain.")
+
+    assert_equal 8, list.length
+    assert_equal "There", list.first
+    assert_equal "certain", list.last
   end
 
 end
