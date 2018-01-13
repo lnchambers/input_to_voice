@@ -28,21 +28,16 @@ class LinkedListTest < Minitest::Test
     assert_equal 1, list.length
     assert_nil list.head.next_node
 
-    list.append(["Wer"])
-    list.append(["Were"])
-    list.append(["Weres"])
+    list.append(["Wer", "Were", "Weres"])
 
     assert_equal 4, list.length
-    assert_equal ["Wer"], list.head.next_node.data
+    assert_equal "Wer", list.head.next_node.data
   end
 
   def test_linked_list_to_string_returns_a_string_of_all_data
     list = LinkedList.new
 
-    list.append(["We"])
-    list.append(["Wer"])
-    list.append(["Were"])
-    list.append(["Weres"])
+    list.append(["We", "Wer", "Were", "Weres"])
 
     assert_equal "We Wer Were Weres", list.to_string
   end
@@ -50,11 +45,11 @@ class LinkedListTest < Minitest::Test
   def test_linked_list_can_accept_long_strings
     list = LinkedList.new
 
-    list.append("There were three things I knew for certain.")
+    list.append(["There", "were", "three", "things", "I", "knew", "for", "certain."])
 
     assert_equal 8, list.length
     assert_equal "There", list.first
-    assert_equal "certain", list.last
+    assert_equal "certain.", list.last
   end
 
 end

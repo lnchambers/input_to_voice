@@ -7,8 +7,9 @@ class LinkedList
               :length
 
   def initialize
-    @head    = nil
+    @head   = nil
     @length  = 0
+    @result = []
   end
 
   def append(data, current_node = @head)
@@ -29,6 +30,12 @@ class LinkedList
     @result << current_node.data
     to_string(current_node.next_node) if !current_node.tail?
     @result.join(" ")
+  end
+
+  def traverse(current_node = @head)
+    until current_node.tail?
+      traverse(current_node.next_node)
+    end
   end
 
   def first
