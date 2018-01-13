@@ -636,7 +636,8 @@ module WordCheck
       "whore",
       "wop",
       "wrapping the weasel",
-      "yclit"
+      "yclit",
+      "suck"
     ]
   end
 

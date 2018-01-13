@@ -5,8 +5,8 @@ class LinkedListInteraction
   include WordCheck
 
   def initialize
-    @voice = ["Cello", "Samantha", "Victoria"]
-    @rate  = ["200", "190", "180"]
+    @voice = ["Cello", "Samantha", "Victoria", "Bubbles", "Alex"]
+    @rate  = ["150", "175", "125"]
   end
 
   def play
